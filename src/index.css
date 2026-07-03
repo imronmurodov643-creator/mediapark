@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 240 20% 4%;
+    --foreground: 200 100% 95%;
+
+    --card: 240 15% 8%;
+    --card-foreground: 200 100% 95%;
+
+    --popover: 240 15% 8%;
+    --popover-foreground: 200 100% 95%;
+
+    --primary: 185 100% 50%;
+    --primary-foreground: 240 20% 4%;
+
+    --secondary: 270 80% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 15% 12%;
+    --muted-foreground: 220 15% 55%;
+
+    --accent: 270 80% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 80% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 15% 15%;
+    --input: 240 15% 15%;
+    --ring: 185 100% 50%;
+
+    --radius: 0.75rem;
+
+    --neon-cyan: 185 100% 50%;
+    --neon-purple: 270 80% 60%;
+    --neon-pink: 330 90% 60%;
+    --neon-blue: 220 100% 60%;
+    --glass: 240 15% 10%;
+    --glass-border: 240 15% 20%;
+
+    --sidebar-background: 240 15% 6%;
+    --sidebar-foreground: 200 100% 95%;
+    --sidebar-primary: 185 100% 50%;
+    --sidebar-primary-foreground: 240 20% 4%;
+    --sidebar-accent: 240 15% 12%;
+    --sidebar-accent-foreground: 200 100% 95%;
+    --sidebar-border: 240 15% 15%;
+    --sidebar-ring: 185 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  ::selection {
+    background: hsl(185 100% 50% / 0.3);
+    color: hsl(0 0% 100%);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(240 15% 6%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(185 100% 50% / 0.3);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(185 100% 50% / 0.5);
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-glass/40 backdrop-blur-xl border border-glass-border/30;
+  }
+
+  .glass-strong {
+    @apply bg-glass/60 backdrop-blur-2xl border border-glass-border/40;
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 15px hsl(185 100% 50% / 0.3),
+                0 0 45px hsl(185 100% 50% / 0.1);
+  }
+
+  .neon-glow-purple {
+    box-shadow: 0 0 15px hsl(270 80% 60% / 0.3),
+                0 0 45px hsl(270 80% 60% / 0.1);
+  }
+
+  .neon-text {
+    text-shadow: 0 0 10px hsl(185 100% 50% / 0.5),
+                 0 0 30px hsl(185 100% 50% / 0.2);
+  }
+
+  .neon-text-purple {
+    text-shadow: 0 0 10px hsl(270 80% 60% / 0.5),
+                 0 0 30px hsl(270 80% 60% / 0.2);
+  }
+
+  .gradient-cyber {
+    background: linear-gradient(135deg, hsl(185 100% 50%), hsl(270 80% 60%));
+  }
+
+  .gradient-cyber-text {
+    background: linear-gradient(135deg, hsl(185 100% 50%), hsl(270 80% 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cyber-grid {
+    background-image: 
+      linear-gradient(hsl(185 100% 50% / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(185 100% 50% / 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .animate-grid-scroll {
+    animation: grid-scroll 20s linear infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+@keyframes grid-scroll {
+  0% { background-position: 0 0; }
+  100% { background-position: 60px 60px; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
